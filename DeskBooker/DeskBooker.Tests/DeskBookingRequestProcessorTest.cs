@@ -36,4 +36,14 @@ public class DeskBookingRequestProcessorTest
         Assert.Equal(deskBookingRequest.Email, deskBookingResult.Email);
         Assert.Equal(deskBookingRequest.BookingDate, deskBookingResult.BookingDate);
     }
+
+
+    [Fact]
+    public void ShouldThrowExceptionIfRequestIsNull()
+    {
+        // Act
+        var exception = Assert.Throws<ArgumentNullException>(() => processor.BookDesk(null));
+
+        Assert.Equal("request", exception.ParamName);
+    }
 }
