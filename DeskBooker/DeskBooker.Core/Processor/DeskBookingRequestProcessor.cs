@@ -23,7 +23,8 @@ public class DeskBookingRequestProcessor
         if( DeskRepo.GetAvailableDesk(request.BookingDate).FirstOrDefault() is Desk availableDesk)
         {
             deskBooking =  MapObject<DeskBooking>(request);
-            deskBooking.Id = availableDesk.Id;
+            deskBooking.DeskId = availableDesk.Id;
+            result.BookingId = request.BookingId;
             this.repo.Save(deskBooking);
         }
         else result.ResultCode = DeskBookingResultCode.NO_DESK_AVAILABLE;

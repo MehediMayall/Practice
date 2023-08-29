@@ -129,4 +129,29 @@ public class DeskBookingRequestProcessorTest
         Assert.Equal(deskBookingResultCode, result.ResultCode);
 
     }
+
+    [Theory]
+    [InlineData(5, true)]
+    [InlineData(null, false)]
+    public void ShouldReturnBookingIdAfterSave(int? BookingID, bool IsDeskAvailable)
+    {
+        // Arrange
+        if (IsDeskAvailable is false) this.availableDesks.Clear();
+        else
+        {
+            deskBookingRequest.BookingId = BookingID;
+            this.deskBookingRepositoryMock.Setup(x => x.Save(It.IsAny<DeskBooking>()))
+            .Callback<DeskBooking>(deskBooking =>
+            {
+                deskBooking.BookingId = BookingID;
+            });
+        }
+
+        // Act
+        var result = this.processor.BookDesk(this.deskBookingRequest);
+
+        // Assert
+        Assert.Equal(BookingID, result.BookingId);
+
+    }
 }
