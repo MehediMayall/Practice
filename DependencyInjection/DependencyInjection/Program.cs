@@ -5,6 +5,7 @@
 Dependency Injection is a set of software design principles and patterns that enables you to develop
 loosely coupled code.
 
+Components must depend on abstractions not on implemtions.
 
 Program to an interface, not an implementation -- Gang of Four
 
@@ -15,6 +16,9 @@ than a technique that enables loose coupling.
 
 The liskov substitution principle states that we should be able to replace one implementation of an
 interface without breaking either the client or the implementation.
+
+
+
 */
 
 
