@@ -13,4 +13,9 @@ public class FrequentFlyerNumberValidatorService: IFrequentFlyerNumberValidator
         throw new NotImplementedException("Simulate this real dependency being hard to use");
     }
 
+    public string LicenseKey
+    {
+        get{ throw new NotImplementedException("EXPIRED"); }
+    }
+
 }

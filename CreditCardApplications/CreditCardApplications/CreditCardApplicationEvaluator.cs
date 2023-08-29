@@ -19,9 +19,12 @@ public class CreditCardApplicationEvaluator
         if(application.GrossAnnualIncome >= HighIncomeThreshold)
             return CreditCardApplicationDecision.AUTO_ACCEPTED;
 
+
         var isValidFrequentFlyerNumber = this.validator.IsValid(application.FrequentFlyerNumber);
 
         if (!isValidFrequentFlyerNumber) return CreditCardApplicationDecision.REFERRED_TO_HUMAN;
+
+        if (this.validator.LicenseKey == "EXPIRED") return CreditCardApplicationDecision.REFERRED_TO_HUMAN;
 
         if(application.GrossAnnualIncome < LowIncomeThreshold) 
             return CreditCardApplicationDecision.AUTO_DECLINED;

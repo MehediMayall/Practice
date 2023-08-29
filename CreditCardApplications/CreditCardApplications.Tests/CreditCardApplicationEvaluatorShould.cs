@@ -5,13 +5,20 @@ namespace CreditCardApplications.Tests;
 
 public class CreditCardApplicationEvaluatorShould
 {
-    private readonly CreditCardApplicationEvaluator sut;
+    private CreditCardApplicationEvaluator sut;
     private CreditCardApplication application;
 
     public CreditCardApplicationEvaluatorShould()
     {
+
+        this.application = new CreditCardApplication{
+            GrossAnnualIncome = 110_000M,
+            FrequentFlyerNumber = "XYZ"
+        };
+
         var validator = new Mock<IFrequentFlyerNumberValidator>();
         validator.Setup(x => x.IsValid("ABC")).Returns(true);
+        // validator.Setup(x => x.LicenseKey).Returns("EXPIRED");
 
         this.sut = new CreditCardApplicationEvaluator(validator.Object);
         
@@ -22,11 +29,6 @@ public class CreditCardApplicationEvaluatorShould
     public void AcceptHighIncomeApplications()
     {
         var expect = CreditCardApplicationDecision.AUTO_ACCEPTED;
-
-        this.application = new CreditCardApplication{
-            GrossAnnualIncome = 110_000M,
-            FrequentFlyerNumber = "test"
-        };
 
         var result = this.sut.evaluate(this.application);
 
@@ -46,6 +48,25 @@ public class CreditCardApplicationEvaluatorShould
 
         var result = this.sut.evaluate(this.application);
 
+        Assert.Equal(expect, result);
+    }
+
+    [Fact]
+    public void ReferToHumanIfLicenseKeyExpired()
+    {
+        // Arrange
+        var expect = CreditCardApplicationDecision.REFERRED_TO_HUMAN;
+
+
+        var validator = new Mock<IFrequentFlyerNumberValidator>();
+        validator.Setup(x => x.LicenseKey).Returns("EXPIRED");
+        this.sut = new CreditCardApplicationEvaluator(validator.Object);
+        this.application.GrossAnnualIncome = 30_000M;
+
+        // Act
+        var result = this.sut.evaluate(this.application);
+
+        // Assert
         Assert.Equal(expect, result);
     }
 
