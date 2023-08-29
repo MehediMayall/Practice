@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
-namespace DeskBooker.Core;
+namespace DeskBooker.Data;
+
 
 public interface IDeskRepository
 {

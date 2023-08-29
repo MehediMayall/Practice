@@ -1,4 +1,4 @@
-namespace DeskBooker.Core;
+namespace DeskBooker.Data;
 
 public interface IDeskBookingRepository
 {

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBooker.Tests", "DeskBoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBooker.Core", "DeskBooker.Core\DeskBooker.Core.csproj", "{5F90FB3C-7A4F-45B1-A828-974639F7A97B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBooker.Data", "DeskBooker.Data\DeskBooker.Data.csproj", "{24255130-E183-4275-A4F7-338DBBFF8EC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{5F90FB3C-7A4F-45B1-A828-974639F7A97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F90FB3C-7A4F-45B1-A828-974639F7A97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F90FB3C-7A4F-45B1-A828-974639F7A97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24255130-E183-4275-A4F7-338DBBFF8EC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24255130-E183-4275-A4F7-338DBBFF8EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24255130-E183-4275-A4F7-338DBBFF8EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24255130-E183-4275-A4F7-338DBBFF8EC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
