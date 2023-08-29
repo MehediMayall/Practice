@@ -104,12 +104,29 @@ public class DeskBookingRequestProcessorTest
     {
         // Arrange
         this.availableDesks.Clear();
-        
+
         // Act
         this.processor.BookDesk(this.deskBookingRequest);
 
         // Assert
         this.deskBookingRepositoryMock.Verify(x => x.Save(It.IsAny<DeskBooking>()), Times.Never);
+
+    }
+
+    [Theory]
+    [InlineData(DeskBookingResultCode.SUCCESS, true)]
+    [InlineData(DeskBookingResultCode.NO_DESK_AVAILABLE, false)]
+    public void ShouldReturnExpectedResultCode(
+        DeskBookingResultCode deskBookingResultCode, bool IsDeskAvailable)
+    {
+        // Arrange
+        if (IsDeskAvailable is false) this.availableDesks.Clear();
+
+        // Act
+        var result = this.processor.BookDesk(this.deskBookingRequest);
+
+        // Assert
+        Assert.Equal(deskBookingResultCode, result.ResultCode);
 
     }
 }

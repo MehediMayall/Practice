@@ -17,15 +17,18 @@ public class DeskBookingRequestProcessor
         if (request == null) throw new ArgumentNullException(nameof(request));
         var deskBooking = new DeskBooking();
 
+        var result = MapObject<DeskBookingResult>(request);
+        result.ResultCode = DeskBookingResultCode.SUCCESS;
+
         if( DeskRepo.GetAvailableDesk(request.BookingDate).FirstOrDefault() is Desk availableDesk)
         {
             deskBooking =  MapObject<DeskBooking>(request);
             deskBooking.Id = availableDesk.Id;
             this.repo.Save(deskBooking);
         }
+        else result.ResultCode = DeskBookingResultCode.NO_DESK_AVAILABLE;
 
-
-        return MapObject<DeskBookingResult>(request);
+        return result;
     }
 
     
