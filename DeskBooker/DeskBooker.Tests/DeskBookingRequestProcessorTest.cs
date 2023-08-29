@@ -1,6 +1,7 @@
 using Xunit;
 using Moq;
 using System;
+using System.Collections.Generic;
 using DeskBooker.Core;
 
 
@@ -10,16 +11,13 @@ public class DeskBookingRequestProcessorTest
 {
     private readonly DeskBookingRequestProcessor processor;
     private readonly DeskBookingRequest deskBookingRequest;
+
+    private readonly List<Desk> availableDesks;
     private readonly Mock<IDeskBookingRepository> deskBookingRepositoryMock;
+    private readonly Mock<IDeskRepository> deskRepositoryMock;
 
     public DeskBookingRequestProcessorTest()
     {
-        // Mocking Repo
-
-        deskBookingRepositoryMock = new Mock<IDeskBookingRepository>(); 
-
-        processor = new DeskBookingRequestProcessor(deskBookingRepositoryMock.Object);
-
         deskBookingRequest = new DeskBookingRequest
         {
             Firstname = "Mehedi",
@@ -27,6 +25,25 @@ public class DeskBookingRequestProcessorTest
             Email = "mehedi@gmail.com",
             BookingDate = DateTime.Now
         };
+
+        availableDesks = new List<Desk>{new Desk
+        { 
+            Id = 1
+        }};
+
+        // Mocking Repo
+
+        deskBookingRepositoryMock = new Mock<IDeskBookingRepository>(); 
+        deskRepositoryMock = new Mock<IDeskRepository>();
+
+
+        deskRepositoryMock.Setup(x => x.GetAvailableDesk(deskBookingRequest.BookingDate))
+            .Returns(availableDesks);
+
+        processor = new DeskBookingRequestProcessor(
+                deskBookingRepositoryMock.Object,
+                deskRepositoryMock.Object
+                );
     }
 
 
@@ -80,5 +97,19 @@ public class DeskBookingRequestProcessorTest
         Assert.Equal(deskBookingRequest.Email, savedDeskBooking.Email);
         Assert.Equal(deskBookingRequest.BookingDate, savedDeskBooking.BookingDate);
         
+    }
+
+    [Fact]
+    public void ShouldNotSaveDeskBookingIfDeskUnavailable()
+    {
+        // Arrange
+        this.availableDesks.Clear();
+        
+        // Act
+        this.processor.BookDesk(this.deskBookingRequest);
+
+        // Assert
+        this.deskBookingRepositoryMock.Verify(x => x.Save(It.IsAny<DeskBooking>()), Times.Never);
+
     }
 }
