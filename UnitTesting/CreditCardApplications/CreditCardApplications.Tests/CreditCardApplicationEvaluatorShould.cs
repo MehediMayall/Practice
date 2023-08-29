@@ -59,7 +59,9 @@ public class CreditCardApplicationEvaluatorShould
 
 
         var validator = new Mock<IFrequentFlyerNumberValidator>();
-        validator.Setup(x => x.LicenseKey).Returns("EXPIRED");
+        // validator.Setup(x => x.LicenseKey).Returns("EXPIRED");
+        validator.Setup(x => x.LicenseKey).Returns(GetLicenseKeyExpiryString);
+
         this.sut = new CreditCardApplicationEvaluator(validator.Object);
         this.application.GrossAnnualIncome = 30_000M;
 
@@ -69,5 +71,8 @@ public class CreditCardApplicationEvaluatorShould
         // Assert
         Assert.Equal(expect, result);
     }
+
+    public string GetLicenseKeyExpiryString() => "EXPIRED";
+
 
 }
