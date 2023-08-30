@@ -18,8 +18,8 @@ public class UserController: ControllerBase
     }
 
     [HttpGet("list")]
-    public async Task<ActionResult<List<User>>> GetUserList()
-    {
+    public async Task<IActionResult> GetUserList()
+    {        
         return Ok( await this.service.GetUserList());
     }
 }

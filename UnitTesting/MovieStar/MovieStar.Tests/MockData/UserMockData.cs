@@ -1,9 +1,9 @@
 
 namespace MovieStar.Tests;
 
-public static class UserMockData
+public  class UserMockData
 {
-    public static List<User> GetUserList()
+    public async Task<List<User>> GetUserList()
     {
         List<User> users = new List<User>();
         users.Add(new User{ Id=1, Username = "Mehedi", Email= "mehedi@gmail.com" });
