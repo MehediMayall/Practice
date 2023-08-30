@@ -1,3 +1,6 @@
+using System.Linq;
+using System.Collections.Generic;
+
 namespace MovieStar.Tests;
 
 public class UserControllerTest
@@ -12,12 +15,14 @@ public class UserControllerTest
     }
 
     [Fact]
-    public void GetUserListShouldReturnListOfUsers()
+    public async void GetUserListShouldReturnListOfUsers()
     {
         // Act
-        var userList = this.sut.GetUserList();
+        var userList = await this.sut.GetUserList();
+        List<User> users = (OkObjectResult) userList.Result;
 
         // Assert
         Assert.NotNull(userList);
+        // Assert.Equal("Mehedi", userList.FirstOrDefault().Username);
     }
 }

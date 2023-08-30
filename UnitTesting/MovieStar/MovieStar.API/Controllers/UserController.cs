@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MovieStar.Service;
+using MovieStar.Core;
+
 
 namespace MovieStar.API.Controllers;
 
@@ -16,7 +18,7 @@ public class UserController: ControllerBase
     }
 
     [HttpGet("list")]
-    public async Task<ActionResult<string>> GetUserList()
+    public async Task<ActionResult<List<User>>> GetUserList()
     {
         return Ok( await this.service.GetUserList());
     }
