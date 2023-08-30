@@ -1,4 +1,4 @@
-using MovieStar.Core;
+using MovieStar.Core.Models;
 using System.Collections.Generic;
 
 namespace MovieStar.Data;
@@ -6,4 +6,8 @@ namespace MovieStar.Data;
 public interface IUserRepository
 {
     Task<List<User>> GetUserList();
+    Task<User> getUserByID(int id);
+    Task<User> getUserByEmail(string Email);
+
+    Task<User> save(User user);
 }

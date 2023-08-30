@@ -7,5 +7,5 @@ global using Microsoft.AspNetCore.Mvc;
 
 global using MovieStar.API.Controllers;
 global using MovieStar.Service;
-global using MovieStar.Core;
+global using MovieStar.Core.Models;
 global using MovieStar.Data;

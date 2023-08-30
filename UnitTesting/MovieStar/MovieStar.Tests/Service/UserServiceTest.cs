@@ -17,15 +17,16 @@ public class UserServiceTest
     {
         // Arrange
         var mockUsers = new UserMockData().GetUserList();
-        // userRepoMock.Setup(x => x.GetUserList()).Returns(mockUsers);
+        userRepoMock.Setup(x => x.GetUserList()).Returns(mockUsers);
 
         sut = new UserService(userRepoMock.Object);
 
         // Act
-        var userList = await this.sut.GetUserList();
+        List<User> userList = await this.sut.GetUserList();
 
         // Assert
         userRepoMock.Verify(x => x.GetUserList(), Times.Once());
-        // userList.Should().HaveCount(2);
+        userList.Should().HaveCount(2);
+        userList.Should().Equal(mockUsers.Result);
     }
 }
