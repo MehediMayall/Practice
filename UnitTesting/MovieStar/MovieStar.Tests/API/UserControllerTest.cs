@@ -11,6 +11,8 @@ public class UserControllerTest
     public UserControllerTest()
     {
         this.userServiceMock = new Mock<IUserService>();
+        this.userServiceMock.Setup(x => x.GetUserList()).Returns(UserMockData.GetUserList());
+
         this.sut = new UserController(userServiceMock.Object);
     }
 
@@ -19,7 +21,6 @@ public class UserControllerTest
     {
         // Act
         var userList = await this.sut.GetUserList();
-        List<User> users = (OkObjectResult) userList.Result;
 
         // Assert
         Assert.NotNull(userList);
