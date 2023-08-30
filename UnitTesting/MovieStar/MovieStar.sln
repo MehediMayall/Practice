@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.Core", "MovieStar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.Service", "MovieStar.Service\MovieStar.Service.csproj", "{6A44CF6C-1DC2-4A42-ACAB-2BB34267F34A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.Data", "MovieStar.Data\MovieStar.Data.csproj", "{4021F1D5-53F7-4519-8C11-A5DBF66E3488}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{6A44CF6C-1DC2-4A42-ACAB-2BB34267F34A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A44CF6C-1DC2-4A42-ACAB-2BB34267F34A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A44CF6C-1DC2-4A42-ACAB-2BB34267F34A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4021F1D5-53F7-4519-8C11-A5DBF66E3488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4021F1D5-53F7-4519-8C11-A5DBF66E3488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4021F1D5-53F7-4519-8C11-A5DBF66E3488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4021F1D5-53F7-4519-8C11-A5DBF66E3488}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

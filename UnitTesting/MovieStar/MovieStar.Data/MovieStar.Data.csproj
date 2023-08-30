@@ -2,7 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MovieStar.Core\MovieStar.Core.csproj" />
-    <ProjectReference Include="..\MovieStar.Data\MovieStar.Data.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

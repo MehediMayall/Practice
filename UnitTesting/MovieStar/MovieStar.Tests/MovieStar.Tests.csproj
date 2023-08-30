@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="6.12.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
     <PackageReference Include="moq" Version="4.20.69" />
     <PackageReference Include="xunit" Version="2.4.2" />
@@ -27,6 +28,7 @@
     <ProjectReference Include="..\MovieStar.API\MovieStar.API.csproj" />
     <ProjectReference Include="..\MovieStar.Service\MovieStar.Service.csproj" />
     <ProjectReference Include="..\MovieStar.Core\MovieStar.Core.csproj" />
+    <ProjectReference Include="..\MovieStar.Data\MovieStar.Data.csproj" />
   </ItemGroup>
 
 </Project>
