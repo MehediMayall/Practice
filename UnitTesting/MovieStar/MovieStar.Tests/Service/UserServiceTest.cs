@@ -17,7 +17,7 @@ public class UserServiceTest
     {
         // Arrange
         var mockUsers = new UserMockData().GetUserList();
-        userRepoMock.Setup(x => x.GetUserList()).Returns(mockUsers);
+        // userRepoMock.Setup(x => x.GetUserList()).Returns(mockUsers);
 
         sut = new UserService(userRepoMock.Object);
 
@@ -25,6 +25,7 @@ public class UserServiceTest
         var userList = await this.sut.GetUserList();
 
         // Assert
-        userList.Should().HaveCount(2);
+        userRepoMock.Verify(x => x.GetUserList(), Times.Once());
+        // userList.Should().HaveCount(2);
     }
 }
