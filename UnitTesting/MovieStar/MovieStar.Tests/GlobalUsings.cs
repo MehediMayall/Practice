@@ -3,6 +3,7 @@ global using Moq;
 global using Xunit.Abstractions;
 global using FluentAssertions;
 global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
 
 
 global using MovieStar.API.Controllers;

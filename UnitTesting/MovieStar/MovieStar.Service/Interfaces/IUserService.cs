@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using MovieStar.Core;
+using MovieStar.Core.Models;
 
 namespace MovieStar.Service;
 
