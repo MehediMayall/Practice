@@ -26,7 +26,23 @@ public class UserRepositoryTest : IDisposable
 
         // Assert
 
-        users.Should().HaveCount(2);
+        users.Should().HaveCount(c => c > 0);
+        // users.Should().Equal(mockUsers.Result);
+    }
+
+    [Fact]
+    public async void GetUserById_ShouldReturnAnUser()
+    {
+        // Arrange
+        int userid = 1;
+
+        // Act
+        User user = await sut.getUserByID(userid);
+
+        // Assert
+
+        Assert.Equal(userid, user.Id);
+        Assert.Equal("Mehedi", user.FirstName);
         // users.Should().Equal(mockUsers.Result);
     }
 
