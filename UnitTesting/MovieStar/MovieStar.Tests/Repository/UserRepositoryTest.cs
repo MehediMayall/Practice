@@ -30,19 +30,17 @@ public class UserRepositoryTest : IDisposable
         // users.Should().Equal(mockUsers.Result);
     }
 
-    [Fact]
-    public async void GetUserById_ShouldReturnAnUser()
+    [Theory]
+    [InlineData(1,"mehedi@gmail.com")]
+    public async void GetUserById_ShouldReturnAnUser(int UserID, string Email)
     {
-        // Arrange
-        int userid = 1;
-
         // Act
-        User user = await sut.getUserByID(userid);
+        User user = await sut.getUserByID(UserID);
 
         // Assert
 
-        Assert.Equal(userid, user.Id);
-        Assert.Equal("Mehedi", user.FirstName);
+        Assert.Equal(UserID, user.Id);
+        Assert.Equal(Email, user.Email);
         // users.Should().Equal(mockUsers.Result);
     }
 
