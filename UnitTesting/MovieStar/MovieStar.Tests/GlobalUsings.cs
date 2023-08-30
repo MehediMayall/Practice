@@ -8,3 +8,4 @@ global using Microsoft.AspNetCore.Mvc;
 global using MovieStar.API.Controllers;
 global using MovieStar.Service;
 global using MovieStar.Core;
+global using MovieStar.Data;
