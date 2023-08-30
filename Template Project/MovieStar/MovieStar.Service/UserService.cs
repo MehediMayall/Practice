@@ -10,9 +10,13 @@ public class UserService: IUserService
     {
         
     }
-    public async Task<List<User>> GetUsers()
+    public async Task<List<User>> GetUserList()
     {
-        return new List<User>();
+        List<User> users = new List<User>();
+        users.Add(new User{ Id=1, Username = "Mehedi", Email= "mehedi@gmail.com" });
+        users.Add(new User{ Id=2, Username = "Rahat", Email="rahat@gmail.com" });
+
+        return users;
     }
 
 }
