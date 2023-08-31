@@ -14,7 +14,23 @@ public class UserController: BaseController
 
     [HttpGet("list")]
     public async Task<IActionResult> GetUserList()
-    {        
-        return getResponse( await this.service.GetUserList());
+    {   
+        try
+        {
+            return getResponse( await this.service.GetUserList());
+        }
+        catch(Exception ex){ return getResponse(ex);}     
     }
+
+    [HttpGet("{UserID}")]
+    public async Task<IActionResult> GetUserByID(int UserID)
+    {   
+        try
+        {
+            return getResponse(await this.service.GetUserByID(UserID));
+        }
+        catch(Exception ex){ return getResponse(ex);}     
+    }
+
+
 }
