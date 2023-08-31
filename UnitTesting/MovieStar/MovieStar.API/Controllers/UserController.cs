@@ -1,14 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
-using MovieStar.Service;
-using MovieStar.Core;
-
-
 namespace MovieStar.API.Controllers;
 
 
 [Route("api/user/")]
 [ApiController]
-public class UserController: ControllerBase
+public class UserController: BaseController
 {
 
     private readonly IUserService service;

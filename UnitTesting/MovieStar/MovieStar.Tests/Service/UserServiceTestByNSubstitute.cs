@@ -46,7 +46,9 @@ public class UserServiceTestByNSubstitute
 
         // Assert
         user.Should().NotBeNull();
+        this.repo.Received(1);
         Assert.Equal(Email, user.Email);
+
         // user.Should().Equal(Email, user.Email);
     }
 }

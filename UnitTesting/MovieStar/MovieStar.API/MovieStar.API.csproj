@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MovieStar.Service\MovieStar.Service.csproj" />
+    <ProjectReference Include="..\MovieStar.Services\MovieStar.Service.csproj" />
     <ProjectReference Include="..\MovieStar.Core\MovieStar.Core.csproj" />
   </ItemGroup>
 

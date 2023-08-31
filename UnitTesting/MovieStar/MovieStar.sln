@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.API", "MovieStar.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.Core", "MovieStar.Core\MovieStar.Core.csproj", "{332D952B-AA40-47E9-9710-49195B9C7C74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.Service", "MovieStar.Service\MovieStar.Service.csproj", "{6A44CF6C-1DC2-4A42-ACAB-2BB34267F34A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.Service", "MovieStar.Services\MovieStar.Service.csproj", "{6A44CF6C-1DC2-4A42-ACAB-2BB34267F34A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.Data", "MovieStar.Data\MovieStar.Data.csproj", "{4021F1D5-53F7-4519-8C11-A5DBF66E3488}"
 EndProject
