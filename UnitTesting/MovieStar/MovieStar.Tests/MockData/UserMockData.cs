@@ -1,14 +1,18 @@
+using System.Linq;
 
 namespace MovieStar.Tests;
 
 public  class UserMockData
 {
-    public async Task<List<User>> GetUserList()
+    private readonly List<User> users;
+    public UserMockData()
     {
-        List<User> users = new List<User>();
+        this.users = new List<User>();
         users.Add(new User{ Id=1, FirstName = "Mehedi", Email= "mehedi@gmail.com" });
         users.Add(new User{ Id=2, FirstName = "Rahat", Email="rahat@gmail.com" });
 
-        return users;
     }
+    public async Task<List<User>> GetUserList() => users;
+    public async Task<User> GetUserByID(int Id) => users.Where(e=> e.Id == Id).FirstOrDefault();
+    
 }

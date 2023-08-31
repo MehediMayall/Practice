@@ -16,5 +16,9 @@ public class UserService: IUserService
     {
         return await repo.GetUserList();
     }
+    public async Task<User> GetUserByID(int UserID)
+    {
+        return await repo.GetUserByID(UserID);
+    }
 
 }

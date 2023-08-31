@@ -22,7 +22,7 @@ public class UserRepository : IUserRepository
         return await dbContext.Users.Include(c=> c.Characters).ToListAsync();
     }
 
-    public async Task<User> getUserByID(int id)
+    public async Task<User> GetUserByID(int id)
     {
         return await dbContext.Users.Include(c=> c.Characters).FirstOrDefaultAsync(u => u.Id == id);
         // return await dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);

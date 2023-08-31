@@ -6,4 +6,5 @@ namespace MovieStar.Service;
 public interface IUserService
 {
     Task<List<User>> GetUserList();
+    Task<User> GetUserByID(int UserID);
 }

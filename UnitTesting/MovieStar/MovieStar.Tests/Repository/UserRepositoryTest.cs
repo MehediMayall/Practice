@@ -37,7 +37,7 @@ public class UserRepositoryTest : IDisposable
     public async void GetUserById_ShouldReturnAnUser(int UserID, string Email)
     {
         // Act
-        User user = await sut.getUserByID(UserID);
+        User user = await sut.GetUserByID(UserID);
 
         // Assert
 

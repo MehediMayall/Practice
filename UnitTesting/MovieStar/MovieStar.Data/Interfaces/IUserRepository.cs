@@ -6,7 +6,7 @@ namespace MovieStar.Data;
 public interface IUserRepository
 {
     Task<List<User>> GetUserList();
-    Task<User> getUserByID(int id);
+    Task<User> GetUserByID(int id);
     Task<User> getUserByEmail(string Email);
 
     Task<User> save(User user);
