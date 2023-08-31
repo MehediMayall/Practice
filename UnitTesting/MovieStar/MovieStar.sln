@@ -3,21 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.API", "MovieStar.API\MovieStar.API.csproj", "{3E987BC3-6659-490C-BBC1-B8DAD802BFD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStar.API", "MovieStar.API\MovieStar.API.csproj", "{3E987BC3-6659-490C-BBC1-B8DAD802BFD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.Core", "MovieStar.Core\MovieStar.Core.csproj", "{332D952B-AA40-47E9-9710-49195B9C7C74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStar.Core", "MovieStar.Core\MovieStar.Core.csproj", "{332D952B-AA40-47E9-9710-49195B9C7C74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.Service", "MovieStar.Services\MovieStar.Service.csproj", "{6A44CF6C-1DC2-4A42-ACAB-2BB34267F34A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStar.Service", "MovieStar.Services\MovieStar.Service.csproj", "{6A44CF6C-1DC2-4A42-ACAB-2BB34267F34A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStar.Data", "MovieStar.Data\MovieStar.Data.csproj", "{4021F1D5-53F7-4519-8C11-A5DBF66E3488}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStar.Data", "MovieStar.Data\MovieStar.Data.csproj", "{4021F1D5-53F7-4519-8C11-A5DBF66E3488}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStar.Tests", "MovieStar.Tests\MovieStar.Tests.csproj", "{A084E938-2337-4185-98F5-421B52EB7398}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3E987BC3-6659-490C-BBC1-B8DAD802BFD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -36,5 +35,15 @@ Global
 		{4021F1D5-53F7-4519-8C11-A5DBF66E3488}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4021F1D5-53F7-4519-8C11-A5DBF66E3488}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4021F1D5-53F7-4519-8C11-A5DBF66E3488}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A084E938-2337-4185-98F5-421B52EB7398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A084E938-2337-4185-98F5-421B52EB7398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A084E938-2337-4185-98F5-421B52EB7398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A084E938-2337-4185-98F5-421B52EB7398}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF851D9B-DE93-4A12-9441-864F49FEC35F}
 	EndGlobalSection
 EndGlobal

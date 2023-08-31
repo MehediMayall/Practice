@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MovieStar.API\MovieStar.API.csproj" />
-    <ProjectReference Include="..\MovieStar.Service\MovieStar.Service.csproj" />
+    <ProjectReference Include="..\MovieStar.Services\MovieStar.Service.csproj" />
     <ProjectReference Include="..\MovieStar.Core\MovieStar.Core.csproj" />
     <ProjectReference Include="..\MovieStar.Data\MovieStar.Data.csproj" />
   </ItemGroup>

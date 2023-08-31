@@ -1,3 +1,5 @@
+using MovieStar.Core.Dto;
+
 namespace MovieStar.Tests;
 
 public class UserControllerTests
@@ -36,11 +38,13 @@ public class UserControllerTests
         // Arrange
         User mockUser = await mockData.GetUserByID(UserID);
         service.GetUserByID(UserID).Returns(mockUser);
-        
+
         // Act
-        var result = await sut.GetUserByID(UserID);
+        //var result = (await sut.GetUserByID(UserID)).GetResponseDto();
+        await sut.GetUserByID(UserID).GetResult(out var result, out ResponseDto responseDto);
 
         // Assert
-        (result as OkObjectResult).StatusCode.Should().Be(200);
+        result.StatusCode.Should().Be(200);
+        responseDto.Data.Should().NotBeNull();
     }
 }
