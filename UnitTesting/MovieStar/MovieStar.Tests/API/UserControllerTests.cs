@@ -52,6 +52,23 @@ public class UserControllerTests
         responseDto.Data.Should().NotBeNull();
         user.Email.Should().Be(Email);
     }
+    
+    [Theory]
+    [InlineData(9999)]
+    public async Task GetUser_ShouldReturnNullUser(int UserID)
+    {
+        // Arrange
+        User mockUser = await mockData.GetUserByID(UserID);
+        service.GetUserByID(UserID).Returns(mockUser);
+
+        // Act
+        await sut.GetUserByID(UserID).GetResult(out var result, out ResponseDto responseDto);
+
+        // Assert
+        result.StatusCode.Should().Be(200);
+        responseDto.Data.Should().BeNull();
+        responseDto.Message.Should().BeEmpty();
+    }
 
 
 }
