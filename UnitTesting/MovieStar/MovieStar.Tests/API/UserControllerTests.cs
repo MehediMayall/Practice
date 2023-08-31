@@ -23,28 +23,35 @@ public class UserControllerTests
         // Arrange
         List<User> mockUsers = await mockData.GetUserList();
         service.GetUserList().Returns(mockUsers);
-        
+
         // Act
-        var result = await sut.GetUserList();
+        await sut.GetUserList().GetResult(out var result, out var responseDto);
+        List<User> users = (List<User>) responseDto.Data;
 
         // Assert
-        (result as OkObjectResult).StatusCode.Should().Be(200);
+        result.StatusCode.Should().Be(200);
+        responseDto.Data.Should().NotBeNull();
+        users.Should().HaveCount(x=> x > 0);
     }
 
     [Theory]
-    [InlineData(1)]
-    public async Task GetUser_ShouldReturnOkResultAndUser(int UserID)
+    [InlineData(1, "mehedi@gmail.com")]
+    public async Task GetUser_ShouldReturnOkResultAndUser(int UserID, string Email)
     {
         // Arrange
         User mockUser = await mockData.GetUserByID(UserID);
         service.GetUserByID(UserID).Returns(mockUser);
 
         // Act
-        //var result = (await sut.GetUserByID(UserID)).GetResponseDto();
         await sut.GetUserByID(UserID).GetResult(out var result, out ResponseDto responseDto);
+
+        User user = (User)responseDto.Data;
 
         // Assert
         result.StatusCode.Should().Be(200);
         responseDto.Data.Should().NotBeNull();
+        user.Email.Should().Be(Email);
     }
+
+
 }
