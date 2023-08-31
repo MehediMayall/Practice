@@ -1,10 +1,12 @@
 using System;
 namespace MovieStar.Tests;
 
+// Cmd + Shift + .
+
 public class UserRepositoryTest : IDisposable
 {
     private IUserRepository sut;
-    private CharacterContext context;
+    private readonly CharacterContext context;
     public UserRepositoryTest()
     {
         var contextOptions = new DbContextOptionsBuilder<CharacterContext>()
@@ -46,6 +48,7 @@ public class UserRepositoryTest : IDisposable
 
     public void Dispose()
     {
+        this.context.Dispose();
         GC.Collect();
     }
 }
