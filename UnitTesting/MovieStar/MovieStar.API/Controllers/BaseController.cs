@@ -15,11 +15,11 @@ public abstract class BaseController : Controller
         };
     }
 
-    protected ActionResult<ResponseDto> getResponse(object Data)
+    protected IActionResult getResponse(object Data)
     {
-        return Ok(new ResponseDto(){ Status="OK", Message = "", Data = Data });
+        return Ok (new ResponseDto(){ Status="OK", Message = "", Data = Data });
     }
-    protected ActionResult<ResponseDto> getResponse(Exception exception)
+    protected IActionResult getResponse(Exception exception)
     {
         return BadRequest( new ResponseDto(){ Status = "ERROR", Message = getErrorDetails(exception), Data = null });
     }

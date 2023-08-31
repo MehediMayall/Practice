@@ -19,13 +19,14 @@ public class UserRepository : IUserRepository
         // users.Add(new User{ Id=2, FirstName = "Rahat", Email="rahat@gmail.com" });
 
         // return users;
-        return await dbContext.Users.Include(c=> c.Characters).ToListAsync();
+        return await dbContext.Users.ToListAsync();
+        // return await dbContext.Users.Include(c=> c.Characters).ToListAsync();
     }
 
     public async Task<User> GetUserByID(int id)
     {
-        return await dbContext.Users.Include(c=> c.Characters).FirstOrDefaultAsync(u => u.Id == id);
-        // return await dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+        // return await dbContext.Users.Include(c=> c.Characters).FirstOrDefaultAsync(u => u.Id == id);
+        return await dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
     }
 
     

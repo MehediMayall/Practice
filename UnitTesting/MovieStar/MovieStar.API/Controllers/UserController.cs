@@ -15,6 +15,6 @@ public class UserController: BaseController
     [HttpGet("list")]
     public async Task<IActionResult> GetUserList()
     {        
-        return Ok( await this.service.GetUserList());
+        return getResponse( await this.service.GetUserList());
     }
 }

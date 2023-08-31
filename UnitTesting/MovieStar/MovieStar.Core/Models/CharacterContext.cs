@@ -28,8 +28,8 @@ public class CharacterContext: DbContext{
         // Character
         builder.Entity<Character>().HasKey(e=> e.Id);        
         // Createdbyid
-        builder.Entity<Character>().HasOne(e=> e.User).WithMany(e=> e.Characters)
-            .HasForeignKey(e=> e.CreatedByID).IsRequired();
+        // builder.Entity<Character>().HasOne(e=> e.User).WithMany(e=> e.Characters)
+        //     .HasForeignKey(e=> e.CreatedByID).IsRequired();
 
         // // Country ID
         // builder.Entity<Character>().HasOne(e=> e.Country).WithMany(e=> e.Characters)

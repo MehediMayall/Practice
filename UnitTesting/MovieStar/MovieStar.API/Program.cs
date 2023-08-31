@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using MovieStar.Core;
 using MovieStar.Service;
 
@@ -9,8 +10,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
+// DB Context
+builder.Services.AddDbContextFactory<CharacterContext>(options =>{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("default"));
+});
+
 // Service Register
 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
