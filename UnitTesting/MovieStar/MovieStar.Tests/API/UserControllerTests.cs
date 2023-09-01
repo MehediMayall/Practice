@@ -14,11 +14,10 @@ public class UserControllerTests
         this.sut = new UserController(this.service);
 
         this.mockData = new UserMockData();
-
     }
 
     [Fact]
-    public async Task GetUserList_ShouldReturnOkResult()
+    public async Task GetUserList_ShouldReturnOkAndUsers()
     {
         // Arrange
         List<User> mockUsers = await mockData.GetUserList();
