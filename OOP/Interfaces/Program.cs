@@ -7,11 +7,14 @@ An interface can define only functions not fields.
 
 public interface IRedoable
 {
+    public int index { get; set; }
+    public string name { get; set; }
     void Redo();
 }
 public interface IUndoable
 {
     void Undo();
+    
 }
 
 public interface IActions: IRedoable, IUndoable
@@ -22,16 +25,26 @@ public interface IActions: IRedoable, IUndoable
 
 public class Actions: IActions
 {
+    public int index { get; set; }
+    public string name { get; set;}
+
     public static void print(object message) => Console.WriteLine(message);
 
     public void Redo()
-    {
+    {        
         print("Redoing...");
     }
     public void Undo()
     {
         print("Undoing...");
     }
+
+    private void doNothing()
+    {
+        index = 0;
+    }
+
+    
 }
 
 
