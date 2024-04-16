@@ -2,7 +2,13 @@ namespace InterfaceAndAbstractClass;
 
 public abstract class List : IList
 {
-    public abstract void add();
-    public abstract void equals();
+    public void add()
+    {
+
+    }
+    public void equals()
+    {
+        
+    }
     public abstract void get();
 }
