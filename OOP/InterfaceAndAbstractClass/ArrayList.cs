@@ -6,4 +6,9 @@ public class ArrayList : List
     {
         throw new NotImplementedException();
     }
+
+    public void add()
+    {
+
+    }
 }

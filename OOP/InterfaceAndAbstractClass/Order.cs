@@ -1,6 +1,6 @@
 namespace InterfaceAndAbstractClass;
 
-public class Order : IList
+public class Order 
 {
     public void add()
     {
@@ -13,6 +13,11 @@ public class Order : IList
     }
 
     public void get()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void show()
     {
         throw new NotImplementedException();
     }

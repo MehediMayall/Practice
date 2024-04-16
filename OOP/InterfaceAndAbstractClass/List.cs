@@ -2,7 +2,7 @@ namespace InterfaceAndAbstractClass;
 
 public abstract class List : IList
 {
-    public void add()
+    public virtual void add()
     {
 
     }
@@ -11,4 +11,9 @@ public abstract class List : IList
         
     }
     public abstract void get();
+
+    public void show()
+    {
+        Console.WriteLine("Just for testing set function");
+    }
 }
