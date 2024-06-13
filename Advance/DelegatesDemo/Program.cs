@@ -1,0 +1,3 @@
+﻿using DelegatesDemo;
+
+DelegateSample.Show();
