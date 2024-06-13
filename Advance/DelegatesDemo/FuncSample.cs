@@ -6,10 +6,10 @@ public class FuncSample
 {
     public static void Show()
     {
-        // Param1 type, Param2 type, Return type
+        // Param1 type, Param2 type, Return type - 
+        // Return type will always be the last one
         Func<int, double, double> orderFunc = GetAmount;
         System.Console.WriteLine(orderFunc.Invoke(3, 124.50));
-
     }
 
      
