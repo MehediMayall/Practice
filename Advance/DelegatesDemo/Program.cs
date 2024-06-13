@@ -1,3 +1,6 @@
 ﻿using DelegatesDemo;
 
-DelegateSample.Show();
+// DelegateSample.Show();
+
+// ActionSample.Show();
+FuncSample.Show();
