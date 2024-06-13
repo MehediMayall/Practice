@@ -3,4 +3,6 @@
 // DelegateSample.Show();
 
 // ActionSample.Show();
-FuncSample.Show();
+// FuncSample.Show();
+
+PredicateSample.Show();
