@@ -27,10 +27,5 @@ public class FuncAnonymousSample
         Console.WriteLine(adderC(10));
         Console.WriteLine(adderD(10));
 
-    }
-
-     
-   
-   
-
+    }   
 }
