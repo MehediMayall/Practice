@@ -5,4 +5,7 @@
 // ActionSample.Show();
 // FuncSample.Show();
 
-PredicateSample.Show();
+// PredicateSample.Show();
+
+FuncAnonymousSample.Show();
+

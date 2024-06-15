@@ -17,9 +17,7 @@ public class QuerySyntax
             where c.OrderStatus.Contains("Vessel Not Yet Arrived")
             select c;
 
-        foreach (var container in vesselNotArrived) System.Console.WriteLine($"Pro: {container.Pro}, Consignee: {container.Consignee}, LoadType: {container.LoadType}");
-
- 
+        foreach (var container in vesselNotArrived) Console.WriteLine($"Pro: {container.Pro}, Consignee: {container.Consignee}, LoadType: {container.LoadType}");
 
 
 
