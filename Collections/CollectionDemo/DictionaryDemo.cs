@@ -14,14 +14,14 @@ public class DictionaryDemo
         {
             var json = sr.ReadToEnd();
             employees = JsonSerializer.Deserialize<List<Employee>>(json);
-            employeesInKeys = employees.ToDictionary(e=> e.email);
+            employeesInKeys = employees.ToDictionary(e=> e.email, StringComparer.OrdinalIgnoreCase);
             // countryWiseEmployees = employees.ToDictionary(e=> e.country);
         }
     }
 
     public void Show()
     {
-        employeesInKeys.TryGetValue("cbeckittx@fema.gov",out Employee employee);
+        employeesInKeys.TryGetValue("cbeckittx@fema.gov".ToUpper(),out Employee employee);
         if (employee != null) System.Console.WriteLine(employee);
     }
 }
