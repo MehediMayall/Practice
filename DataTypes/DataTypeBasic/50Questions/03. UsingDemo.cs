@@ -15,8 +15,8 @@ public class UsingDemo
 {
     public UsingDemo()
     {
-        var customer1 = new CustomerDto();
-        var customer2 = new CustomerBase();
+        var customer1 =  CustomerDto.Create(1, "Mehedi", "mehedi@gmail.com");
+        var customer2 =  CustomerBase.Create(2, "John", "john@gmail.com");
 
         WriteLine("Using static directive");
 
