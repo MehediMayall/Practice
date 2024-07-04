@@ -9,4 +9,7 @@
 // new UsingDemo();
 
 // 04
-new DynamicKeyword();
+// new DynamicKeyword();
+
+// 06
+new LambdaExpressions();
