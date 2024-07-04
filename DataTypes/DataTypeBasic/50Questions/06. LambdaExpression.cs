@@ -2,6 +2,9 @@
 // A lambda expression is a special way of defining annonymous function
 
 // param => expression
+// Expression lambdas:  (input-parameters) => expression
+// Statement lambdas:   (input-parameters) => { <sequence-of-statement> }
+
 
 using static System.Console;
 
