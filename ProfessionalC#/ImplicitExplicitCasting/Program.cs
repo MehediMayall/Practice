@@ -25,3 +25,9 @@ List<Error> error3 = (List<Error>) response;  // Explicit casting, mentioning ty
 WriteLine(error2.Detail);
 WriteLine(error3.FirstOrDefault().Detail);
 
+
+// Creating Point Struct from Tuple
+Point point = (45, 20);
+Point point2 = (10.5f, 20.4f);
+
+WriteLine($"X: {point.X}, Y: {point.Y}");
