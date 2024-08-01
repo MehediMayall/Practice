@@ -3,36 +3,23 @@ using static System.Console;
 
 int[] numbers = new int[100000];
 
-void print(string message, int[] numbers) 
-{
-    // WriteLine($"{message}:");
-    // foreach(int x in numbers)
-    //     Write(x.ToString().PadLeft(3));
-    // WriteLine("");
-}
-
 
 // Using HashSet
 void printDuplicateUsingHashSet()
 {
-    WriteLine("\nUsing HashSet::\n");
-
     HashSet<int> distincts = new(), duplicates = new();
 
     foreach(int x  in numbers)
         if (!distincts.Add(x))
             duplicates.Add(x);
 
-    print("Distinct Numbers", distincts.ToArray());
-    print("Duplicate Numbers", duplicates.ToArray());
+    WriteLine($"Duplicates: {duplicates.Count()}");
 }
 
 
 // Using Dictionary 
 void printDuplicateUsingDictionary()
 {
-    WriteLine("\nUsing Dictionary::\n");
-
     Dictionary<int,int> duplicateCount = new();
     foreach(int x in numbers)
         if (duplicateCount.ContainsKey(x))
@@ -46,17 +33,13 @@ void printDuplicateUsingDictionary()
         .ToArray();
 
     int[] distincts = duplicateCount.Keys.ToArray();
-
-    print("Distinct Numbers", distincts.ToArray());
-    print("Duplicate Numbers", duplicates.ToArray());
+    WriteLine($"Duplicates: {duplicates.Count()}");
 }
 
 
 // Using Linq
 void printDuplicateUsingLinq()
 {
-    WriteLine("\nUsing Linq::\n");
-
     int[] duplicates = numbers
         .GroupBy(x=> x)
         .Where(g=> g.Count() > 1)
@@ -64,9 +47,14 @@ void printDuplicateUsingLinq()
         .ToArray();
 
     int[] distincts = numbers.Distinct().ToArray();
+    WriteLine($"Duplicates: {duplicates.Count()}");
+}
 
-    print("Distinct Numbers", distincts.ToArray());
-    print("Duplicate Numbers", duplicates.ToArray());
+void countDuplicateUsingLinq()
+{
+    int duplicates = numbers
+        .GroupBy(x=> x).Count();    
+    WriteLine($"Duplicates: {duplicates}");
 }
 
 
@@ -80,9 +68,10 @@ void executeFunction(Action action)
 }
 
 for(int x=0;x<100000;x++)
-    numbers[x] = new Random().Next(1,9999);
+    numbers[x] = new Random().Next(9,99999);
 
 executeFunction(printDuplicateUsingHashSet);
 executeFunction(printDuplicateUsingDictionary);
 executeFunction(printDuplicateUsingLinq);
+executeFunction(countDuplicateUsingLinq);
 
