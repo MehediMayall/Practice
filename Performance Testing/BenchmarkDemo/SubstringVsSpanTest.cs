@@ -1,14 +1,11 @@
-using BenchmarkDotNet.Attributes;
-
 namespace BenchmarkDemo;
-
 
 [MemoryDiagnoser]
 public class SubstringVsSpanTest
 {
     public string date = "08 12 2023";
 
-    [Benchmark]
+    [Benchmark(Baseline = true)]
     public (int, int, int) GetYearMonthDayUsingSubstring()
     {
         return (

@@ -4,7 +4,7 @@ using BenchmarkDotNet.Running;
 
 // BenchmarkRunner.Run<NameParserBenchmarks>();
 
-// BenchmarkRunner.Run<SubstringVsSpanTest>();
+BenchmarkRunner.Run<SubstringVsSpanTest>();
 
-BenchmarkRunner.Run<ArraySumVsSpanSum>();
+// BenchmarkRunner.Run<ArraySumVsSpanSum>();
 
