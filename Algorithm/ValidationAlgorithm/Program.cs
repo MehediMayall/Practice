@@ -26,13 +26,39 @@ bool IsPasswordSuperStrong(string str) =>
     str.ToCharArray().Distinct().Count() == str.Length;
 
 
-WriteLine(IsLowerCase("Mehedi Hasan"));
-WriteLine(IsUpperCase("Mehedi Hasan"));
+// bool IsValid(string word) {
+//     string str = word.ToLower();
+//     return "aeiou".ToCharArray().Any(c=> str.Contains(c)) && 
+//         "abcdfgjklmnpqrstvxyz".ToCharArray().Any(c=> str.Contains(c)) &&
+//         str.Select(char.IsLetter).Count() >= 3 &&
+//         new System.Text.RegularExpressions.Regex(@"[^\w]").Match(str).Length == 0;
+// }
 
-WriteLine(IsPasswordCompitable("Mehedi123"));
-WriteLine(IsPasswordStrong("Mehedi123"));
-WriteLine(IsPasswordStrong("Mehedi@123"));
+bool IsValid(string word) {
+    string str = word.ToLower();     
 
-WriteLine(IsPasswordSuperStrong("Mehedi@123"));
-WriteLine(IsPasswordSuperStrong("abcDxyz@123"));
+    var containsVowel = new System.Text.RegularExpressions.Regex(@"[aeiou]");
+    var containsConsoant = new System.Text.RegularExpressions.Regex(@"[^aeiou\d]");
+    var containsOnlyLetters = new System.Text.RegularExpressions.Regex(@"[^\w]");
+
+    return    str.Length >= 3 &&
+        containsVowel.IsMatch(str) && 
+        containsConsoant.IsMatch(str) &&
+        containsOnlyLetters.Matches(str).Count == 0;
+}
+
+
+// WriteLine(IsLowerCase("Mehedi Hasan"));
+// WriteLine(IsUpperCase("Mehedi Hasan"));
+
+// WriteLine(IsPasswordCompitable("Mehedi123"));
+// WriteLine(IsPasswordStrong("Mehedi123"));
+// WriteLine(IsPasswordStrong("Mehedi@123"));
+
+// WriteLine(IsPasswordSuperStrong("Mehedi@123"));
+// WriteLine(IsPasswordSuperStrong("abcDxyz@123"));
+
+
+WriteLine(IsValid("234Adas"));
+WriteLine(IsValid("b3"));
 
