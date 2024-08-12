@@ -31,3 +31,14 @@ catch (Exception ex) { WriteLine(ex.Message); }
 // {
 //     WriteLine(ex.Message);
 // }
+
+bool didTheCodeRun = false;
+
+IEnumerable<bool> RunTheCode()
+{
+    didTheCodeRun = true;
+    yield return true;
+}
+
+IEnumerable<bool> runthis = RunTheCode();
+WriteLine($"Did the code run? {didTheCodeRun}");
