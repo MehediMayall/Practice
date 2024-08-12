@@ -17,4 +17,12 @@ public class VideoEncoder
 
     private void OnVideoEncoded(Video video) =>
         VideoEncoded?.Invoke(this, new VideoEventArgs() { video = video});
+
+    public void Subscribe(EventHandler<VideoEventArgs> subscriber) =>
+        VideoEncoded += subscriber;
+
+    public void Unsubscribe(EventHandler<VideoEventArgs> subscriber) =>
+        VideoEncoded -= subscriber;
+
+
 }
