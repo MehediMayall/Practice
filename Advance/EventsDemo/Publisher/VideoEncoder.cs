@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace EventsDemo;
 
 public class VideoEncoder
@@ -23,6 +25,6 @@ public class VideoEncoder
 
     public void Unsubscribe(EventHandler<VideoEventArgs> subscriber) =>
         VideoEncoded -= subscriber;
-
+ 
 
 }
