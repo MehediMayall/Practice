@@ -7,10 +7,10 @@ multiplyItRef(ref value1);
 multiplyItOut(out value2);
 
 
-// Ref can reuse previous value
+// Ref keyword can reuse previous value
 void multiplyItRef(ref int num) => num = num * 10;
 
-// Out can't reuse preivous value. It must assign the value in the function
+// Out keyword can't reuse previous value. It must be assigned in the function
 void multiplyItOut(out int num) 
 {
     num = 1;
