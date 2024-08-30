@@ -16,6 +16,7 @@ WriteLine(Employee.Bonus);
 // This is not possible. Readonly field are not static / class variable
 // WriteLine(Employee.YearlyBonus);
 
+
 class Employee
 {
     // These are instance variables
@@ -51,4 +52,5 @@ class Employee
         WriteLine(this.YearlyBonus);
     }
 }
+
 
