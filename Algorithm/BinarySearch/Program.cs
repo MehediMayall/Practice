@@ -35,7 +35,7 @@ int BinarySearch2<T>(IList<T> nums, T itemToSearch) where T: IComparable<T>
         if (comparison == 0)
             return mid;
         else if ( comparison > 0 )
-            right = mid-1;
+            right = mid - 1;
         else
             left = mid + 1;
     } 
