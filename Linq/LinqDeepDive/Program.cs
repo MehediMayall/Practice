@@ -406,12 +406,53 @@ IEnumerable<List<int>> table = [Enumerable.Range(1,20).ToList(), Enumerable.Rang
 
 // personOrderList.Dump();
 
-var personOrderList2 = people.Join(orders, 
-    person => person.Id, 
-    order => order.PersonId,
-    (person, order)=> new {
-        person.Name,
-        order.Id
-    });
+// var personOrderList2 = people.Join(orders, 
+//     person => person.Id, 
+//     order => order.PersonId,
+//     (person, order)=> new {
+//         person.Name,
+//         order.Id
+//     });
 
-personOrderList2.Dump();
+// personOrderList2.Dump();
+
+
+// var personOrderList = from person in people
+//     join order in orders 
+//     on person.Id equals order.PersonId into personOrders
+//     from order in personOrders.DefaultIfEmpty()
+//     select new {
+//         Name = person.Name,
+//         OrderId = order != null ? order.Id : 0
+//     };
+
+// personOrderList.Dump();
+
+// CONSOLE MAGIC
+
+// Adding 20% VAT with each one
+// Console.ReadLine()
+//     .Split(new string[]{","}, StringSplitOptions.RemoveEmptyEntries)
+//     .Select(double.Parse)
+//     .Select(n => n * 1.2)
+//     .ToList()
+//     .ForEach(n => Console.WriteLine($"{n}"));
+
+// Console.ReadLine()
+//     .Split(" ")
+//     .Select(s=> s.ToUpper())
+//     .ToList()
+//     .ForEach(s=> Console.WriteLine(s));
+
+string input = "2 5 6 test abc 6.3 -3 false";
+var numbers = input.Split(" ")
+    .Select(n=> {
+        long value;
+        bool success = long.TryParse(n, out value);
+        return new{value, success};
+    })
+    .Where(n=> n.success)
+    .Select(x => x.value)
+    .ToList();
+
+numbers.Dump();
