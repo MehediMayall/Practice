@@ -1,6 +1,10 @@
-﻿using System.Globalization;
+﻿using System.Collections;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Reflection;
 using System.Text;
 using Dumpify;
+using SectionTwo;
 using static System.Console;
 
 var text = "Mehedi Hasan";
@@ -66,24 +70,95 @@ var strFromUTF32Data = Encoding.UTF8.GetString(data32);
 
 // Array to Dictionary
 
-var fruits = new[]
-{
-    new Fruit(){ Id =1, Name = "Apple"},
-    new Fruit(){ Id =2, Name = "Mango"},
-    new Fruit(){ Id =3, Name = "Banana"},
+// var fruits = new[]
+// {
+//     new Fruit(){ Id =1, Name = "Apple"},
+//     new Fruit(){ Id =2, Name = "Mango"},
+//     new Fruit(){ Id =3, Name = "Banana"},
+// };
+
+// var fruitDict = fruits.ToDictionary(x=> x.Id, y => y.Name);
+// fruitDict.Dump();
+
+// foreach(KeyValuePair<int,string> kvp in fruitDict)
+//     WriteLine($"Key: {kvp.Key}, value: {kvp.Value}");
+
+
+
+// class Fruit
+// {
+//     public int Id { get; set; }
+//     public string Name { get; set; }
+// }
+
+// var entity = new ExtendedEntity()
+// {
+//     Name = "Mehedi"
+// };
+
+// entity.Name.Dump();
+// entity.BaseEntity.Name.Dump("Name from base entity");
+
+
+// var groceryList = new ReadOnlyCollection<string>(new List<string>{"Apple", "Banana"});
+
+// var x = 5;
+// WriteLine(4 & 5);
+
+// Union
+
+// int[] list1 = Enumerable.Range(1,10).ToArray();
+// int[] list2 = Enumerable.Range(7,10).ToArray();
+
+
+// var list3 = list1.Union(list2);
+// list3.GetType().Name.Dump();
+// list1.Dump();
+// list3.Dump();
+
+
+// Array Covariance
+
+string[] names = new string[]{
+    "Australia",
+    "Bangladesh"
 };
 
-var fruitDict = fruits.ToDictionary(x=> x.Id, y => y.Name);
-fruitDict.Dump();
+object[] objects = names;
 
-foreach(KeyValuePair<int,string> kvp in fruitDict)
-    WriteLine($"Key: {kvp.Key}, value: {kvp.Value}");
+objects.First().GetType().Dump();
 
 
+// Reflection
 
-class Fruit
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-}
+// Assembly.GetExecutingAssembly().GetTypes().Dump();
+
+// foreach(var type in Assembly.GetExecutingAssembly().GetTypes())
+//     // type.Name.Dump();
+//     type.GetConstructors().FirstOrDefault().GetParameters().Dump();
+
+// foreach(var assembly in Assembly.GetExecutingAssembly().GetTypes())
+// {
+//     var obj = Activator.CreateInstance(assembly.GetType());
+//     obj.GetType().Dump();
+// }
+
+// typeof(int).Assembly.FullName.Dump();
+// typeof(int).Assembly.Location.Dump();
+
+// Creating object and setting property value
+
+// var typeOfClassy = typeof(Classy);
+
+// var classy  = new Classy();
+// var prop = typeOfClassy.GetProperty("Propertua");
+// prop.SetValue(classy, "Value for propertua");
+
+// classy.Dump();
+
+// class Classy{
+//     public string Propertua { get; set; }
+// }
+
+
 

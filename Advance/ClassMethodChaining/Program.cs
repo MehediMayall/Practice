@@ -33,6 +33,7 @@ public class Calculator
     }
 
     public Calculator Divide(double Number2){
+        if (Number2 == 0) throw new Exception("Divided by 0");
         Number1 = Number1 / Number2;
         return this;
     }
@@ -48,43 +49,43 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        var c = new Calculator(30);
-        c.Add(10).Subtract(5).Multiply(3).Divide(4.4).Show();
+        // var c = new Calculator(30);
+        // c.Add(10).Subtract(5).Multiply(3).Divide(4.4).Show();
 
         var c2 = new Calculator(0);
-        c2.Add(100).Divide(3).ShowInt();
+        c2.Add(100).Divide(0).ShowInt();
 
         var c3 = new Calculator(0);
         c3.Add(20).Multiply(4).ShowInt();
 
         
-        invoice.Validate().HasThisDuplicateInvoice().
+        // invoice.Validate().HasThisDuplicateInvoice().
 
-        var product = new Product();
+        // var product = new Product();
 
     }
 
 
 }
 
-public class Prdouct
-{
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public int Quantity { get; set; }
+// public class Prdouct
+// {
+//     public string Name { get; set; }
+//     public string Description { get; set; }
+//     public int Quantity { get; set; }
 
-    public Product AddStock(int quantity)
-    {
-        this.Quantity = this.Quantity + quantity;
-        return this;
-    }
+//     public Product AddStock(int quantity)
+//     {
+//         this.Quantity = this.Quantity + quantity;
+//         return this;
+//     }
 
-    public Product SubtarctStock(int quantity)
-    {
-        this.Quantity = this.Quantity + quantity;
-        return this;
-    }
-}
+//     public Product SubtarctStock(int quantity)
+//     {
+//         this.Quantity = this.Quantity + quantity;
+//         return this;
+//     }
+// }
 
-Order <- OrderProcessor;
+// Order <- OrderProcessor;
 
